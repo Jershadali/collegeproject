@@ -1,0 +1,111 @@
+
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
+import { useProducts } from '@/contexts/ProductContext';
+import { Button } from '@/components/ui/button';
+import { ShoppingCart, User, LogOut } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+
+const Header = () => {
+  const { currentUser, logout } = useAuth();
+  const { cart } = useProducts();
+  const navigate = useNavigate();
+  
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+  
+  return (
+    <header className="bg-white border-b sticky top-0 z-50">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <Link to="/" className="text-2xl font-bold text-primary">NEGO Bot</Link>
+        
+        <div className="flex items-center gap-6">
+          {currentUser ? (
+            <>
+              <nav className="hidden md:flex space-x-6">
+                {currentUser.role === 'customer' && (
+                  <>
+                    <Link to="/products" className="text-gray-700 hover:text-primary font-medium">
+                      Products
+                    </Link>
+                    <Link to="/orders" className="text-gray-700 hover:text-primary font-medium">
+                      Orders
+                    </Link>
+                  </>
+                )}
+                {currentUser.role === 'seller' && (
+                  <>
+                    <Link to="/dashboard" className="text-gray-700 hover:text-primary font-medium">
+                      Dashboard
+                    </Link>
+                    <Link to="/manage-products" className="text-gray-700 hover:text-primary font-medium">
+                      Manage Products
+                    </Link>
+                  </>
+                )}
+              </nav>
+              
+              <div className="flex items-center gap-4">
+                {currentUser.role === 'customer' && (
+                  <Link to="/cart" className="relative">
+                    <ShoppingCart className="h-6 w-6 text-gray-700" />
+                    {totalItems > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        {totalItems}
+                      </span>
+                    )}
+                  </Link>
+                )}
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="rounded-full p-2">
+                      <User className="h-5 w-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuLabel>
+                      <div>
+                        <p className="font-medium">{currentUser.name}</p>
+                        <p className="text-sm text-gray-500">{currentUser.email}</p>
+                        <p className="text-xs text-gray-500 mt-1">Role: {currentUser.role}</p>
+                      </div>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            </>
+          ) : (
+            <div className="flex items-center gap-4">
+              <Link to="/login">
+                <Button variant="outline">Login</Button>
+              </Link>
+              <Link to="/signup">
+                <Button>Sign Up</Button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
