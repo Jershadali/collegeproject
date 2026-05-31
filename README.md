@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# Negobot803
 
-## Project info
+Negobot803 is a web-based application built using React, TypeScript, Vite, Tailwind CSS, and shadcn/ui. The project is deployed and hosted on Vercel.
 
-**URL**: https://lovable.dev/projects/4a7c13ca-0a0c-4a3c-b0c3-aad55e5feda8
+## Live Website
 
-## How can I edit this code?
+https://negobot803.vercel.app/
 
-There are several ways of editing your application.
+## Repository
 
-**Use Lovable**
+https://github.com/Jershadali/collegeproject
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4a7c13ca-0a0c-4a3c-b0c3-aad55e5feda8) and start prompting.
+## Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* shadcn/ui
 
-**Use your preferred IDE**
+## Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Clone the repository:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+git clone https://github.com/Jershadali/collegeproject.git
+```
 
-Follow these steps:
+Navigate to the project directory:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+cd collegeproject
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Install dependencies:
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Run the development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open your browser and visit:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```text
+http://localhost:5173
+```
 
-**Use GitHub Codespaces**
+## Build for Production
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+## Preview Production Build
 
-This project is built with:
+```bash
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+This project is deployed using Vercel.
 
-Simply open [Lovable](https://lovable.dev/projects/4a7c13ca-0a0c-4a3c-b0c3-aad55e5feda8) and click on Share -> Publish.
+Production URL:
 
-## Can I connect a custom domain to my Lovable project?
+https://negobot803.vercel.app/
 
-Yes, you can!
+## Features
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+* Modern React-based user interface
+* Fast development with Vite
+* Responsive design using Tailwind CSS
+* Type-safe development with TypeScript
+* Easy deployment through Vercel
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Author
+
+Jershad Ali M
+
+Integrated MSc Computer Science (AI & ML)
+
+Bharata Mata College (Autonomous), Thrikkakara
+
